@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Gothic+A1:wght@500&family=Lato:ital,wght@1,900&family=Nanum+Gothic&family=Roboto+Mono&family=Rubik:wght@600&family=Ubuntu:wght@700&display=swap');
+
+* {
+    margin: 0;
+    /* 모든 요소의 바깥 여백을 0으로 설정 */
+    padding: 0;
+    /* 모든 요소의 안쪽 여백을 0으로 설정 */
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+}
+h1{
+    letter-spacing: 3px;
+}
+h2{
+    position: relative;
+    left: -27%;
+    letter-spacing: 3px;
+    font-size: 30px;
+}
+body {
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #afbcff, #fdfbdc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100dvh;
+}
+.container{
+    position: relative;
+    background-color: #fff;
+    border-radius: 30px;
+    width: 600px;
+    height: 500px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgb(50, 87, 165);
+}
+.container form{
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;/* 수평 정렬을 가운데로 설정 */
+    flex-direction: column;/* 세로 방향으로 아이템을 정렬 (기본 값은 가로 방향) */
+    padding: 0 40px;
+    height: 100%;
+    margin: 70px 20px;
+}
+.container .signup{
+    position: relative;
+    margin: 100px 20px;
+}
+.container input{
+    letter-spacing: 1px;
+    background-color: #eee;
+    border: none;
+    margin: 20px 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
+.container button{
+    margin: 55px 0;
+    color: #ffffff;
+    background: linear-gradient(to right,  #94a4ff, #fff8ae);
+    border-radius: 10px;
+    border: none;
+    padding: 10px 45px;
+}
+#signup{
+    position: relative;
+    left: -36%;
+}
+#signin{
+    position: relative;
+    left: -36%;
+}
+.toScreen{
+    position: absolute;
+    background-color: #b3bfff;
+    top: 55%;
+    left: 50%;
+    width: 50%;
+    transition: all 0.6s ease-in-out;
+    padding: 10%;
+    border-radius: 150px 0 0 100px;
+}
+.container.active .toScreen{
+    transform: translateY(-500px);
+}
+.container.active form {
+    transform: translateY(-500px);
+}
