@@ -28,6 +28,11 @@ document.getElementById("signupForm").addEventListener("submit", function (event
         .then(response => response.json())
         .then(data => {
             console.log('서버 응답:', data);
+            if (data.success) {
+                alert('성공: ' + data.message);
+            } else {
+                alert('오류: ' + data.message);
+            }
         })
         .catch(error => {
             console.error('에러:', error);
