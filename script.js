@@ -55,6 +55,11 @@ document.getElementById("signinForm").addEventListener("submit", function (event
         .then(response => response.json())
         .then(data => {
             console.log('서버 응답:', data);
+            if (data.success) {
+                alert(data.message);
+            } else {
+                alert(data.message);
+            }
         })
         .catch(error => {
             console.error('에러:', error);

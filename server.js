@@ -32,7 +32,7 @@ app.post('/signup', async (req, res) => {
     // 방법 1: 사용자가 이미 존재하는지 확인
     const userExistsQuery = await pool.query('SELECT EXISTS(SELECT 1 FROM user_information WHERE id = ?) as user_exists', [userid]);
     const userExists = userExistsQuery[0].user_exists === 1;
-    if (userExists[0]==1) {
+    if (userExists[0] == 1) {
       // 이미 해당 이메일을 가진 사용자가 존재함, 적절히 처리
       res.status(400).json({ success: false, message: '해당 이메일로 이미 가입된 사용자가 있습니다.' });
     } else {
@@ -61,13 +61,17 @@ app.post('/signup', async (req, res) => {
 app.post('/signin', async (req, res) => {
   try {
     const { userid, userpw } = req.body;
-    const conn = await pool.getConnection();
-    const result = await conn.query(
-      'INSERT INTO user_information (id, pw) VALUES (?, ?)',
-      [userid, userpw]
-    );
-    conn.release();
-    res.status(200).json({ success: true, message: 'Data inserted successfully' });
+    const userExistsid = await pool.query('SELECT EXISTS(SELECT 1 FROM user_information WHERE id = ?) as user_exists', [userid]);
+    const userExistspw = await pool.query('SELECT EXISTS(SELECT 1 FROM user_information WHERE pw = ?) as user_exists', [userpw]);
+    console.log(userExistsid);
+    console.log(userExistspw);
+    if (userExistsid[0].user_exists == 1 && userExistspw[0].user_exists == 1) {
+      res.status(200).json({ success: true, message: 'Hello, friend! :)' });
+      conn.release();
+    }
+    else {
+      res.status(400).json({ success: true, message: 'Please sign up as a member' });
+    }
   } catch (error) {
     console.error('Error inserting data:', error);
     res.status(500).json({ success: false, message: 'Internal server error' });
