@@ -1,9 +1,8 @@
 # LoginPage
-### <개발환경> 
-#### Window
-
-### <개발도구> 
-#### 화면: HTML / CSS / JS
-#### 기능: JS / MariaDB / node.js
+## 개발 환경 및 도구
+- **언어:** JavaScript
+- **웹 개발:** HTML, CSS
+- **버전 관리:** Git
+- **개발 환경:** Visual Studio Code
 
 <img src=https://github.com/JiMinL03/LoginPage/assets/147581729/6e8f0745-5aac-4b0f-9971-fe83f5c92643>
